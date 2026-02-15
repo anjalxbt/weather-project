@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getWeather } from "./api";
 import Card from "./components/cards/Card";
+import DailyForecast from "./components/cards/DailyForecast";
 
 function App() {
   const { data } = useQuery({
@@ -16,9 +17,7 @@ function App() {
         <Card title="Hourly forecast">
           {JSON.stringify(data?.hourly).slice(0, 100)}
         </Card>
-        <Card title="Daily forecast">
-          {JSON.stringify(data?.daily).slice(0, 100)}
-        </Card>
+        <DailyForecast />
       </div>
     </>
   );
